@@ -7,8 +7,8 @@ The MLX5 error occurs (pretty consistently) on Perlmutter's GPU nodes.
 ```bash
 ./setup.sh
 ```
-**Note:** this will erase any previous conda installations, but it will **NOT**
-erase the conda environment
+**Note:** this will erase any previous conda installations, **including** the
+conda environment
 
 ## Running
 
