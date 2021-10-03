@@ -20,6 +20,7 @@ where `<account>` is your Perlmutter Early-Science account.
 2. Run the reproducer:
 ```bash
 source env.sh
+conda activate diffbrag2
 srun -N77 -n308 -c2 python -X faulthandler pmUsrIssue5.py
 ```
 
