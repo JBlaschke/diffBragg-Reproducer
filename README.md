@@ -17,7 +17,7 @@ cd $CFS/path/to/repo
 
 ./setup-noconda.sh $(pwd)/conda
 
-module load PrgEnv-gnu cuda cpe-cuda python
+module load PrgEnv-gnu python
 source $(pwd)/cond
 
 srun -N77 -n308 -c2 python -X faulthandler pmUsrIssue5.py
@@ -36,8 +36,8 @@ Two variants can be installed:
 2. Using Miniconda
 
 If you choose to use (2) then you need to source the `env.sh` before running.
-If you choose (1) then you need to run `module load PrgEnv-gnu cuda cpe-cuda
-python` instead. c.f. bullet 2 in the section on `Running`.
+If you choose (1) then you need to run `module load PrgEnv-gnu python` instead.
+c.f. bullet 2 in the section on `Running`.
 
 ### Using NERSC's Conda
 
@@ -69,7 +69,7 @@ different:
 
 If you installed using `setup-noconda.sh $YOUR_LOCAL_CONDA_PREFIX`
 ```bash
-module load PrgEnv-gnu cuda cpe-cuda python
+module load PrgEnv-gnu python
 source activate $YOUR_LOCAL_CONDA_PREFIX
 srun -N77 -n308 -c2 python -X faulthandler pmUsrIssue5.py
 ```
