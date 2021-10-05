@@ -1,6 +1,31 @@
 # Derek's MLX5 Reproducer
 
-The MLX5 error occurs (pretty consistently) on Perlmutter's GPU nodes.
+The MLX5 error occurs (pretty consistently) on Perlmutter's GPU nodes. What I
+have found the bug is reliably tripped when:
+1. Using installation variant 1 (i.e. NERSC's Conda environment)
+2. Using 70 (or more) GPU nodes
+3. All sources and dependencies (including the Conda environtment) are on CFS
+
+Substituting the DVS mount (`/dvs_ro/`) stops this reproducer from tripping the
+error (possibly completely, or at least supressing the probability).
+
+This is what works (clone to CFS):
+```bash
+salloc -C gpu -n 308 -c 2 -t 60 --gpus-per-task 1 -A ...
+
+cd $CFS/path/to/repo
+
+./setup-noconda.sh $(pwd)/conda
+
+module load PrgEnv-gnu cuda cpe-cuda python
+source $(pwd)/cond
+
+srun -N77 -n308 -c2 python -X faulthandler pmUsrIssue5.py
+```
+
+I have tested (and confirmed this with 70 nodes/ 280 processes). Also: using
+the same conda env but sourcing via `/dvs_ro/` -- or installing to SCRATCH --
+stopped this reproducer from tripping the error in my tests.
 
 ## Installation
 
