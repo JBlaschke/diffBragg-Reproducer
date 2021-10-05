@@ -5,7 +5,7 @@ module load PrgEnv-gnu cuda cpe-cuda python
 
 # Set up diffBragg's conda environtment
 conda create --prefix=$1 python=3.7 -y
-conda activate $1
+source activate $1
 
 MPICC="cc -shared -target-accel=nvidia80 -lmlx5" pip install --force --no-cache-dir --no-binary=mpi4py mpi4py
 conda install -c conda-forge cctbx-base -y
