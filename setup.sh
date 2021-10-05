@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 source $(readlink -f $(dirname "${BASH_SOURCE[0]}"))/env.sh
 
 rm -rf $CONDA_ROOT

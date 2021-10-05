@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Load modules
 module load PrgEnv-gnu cuda cpe-cuda python
 
