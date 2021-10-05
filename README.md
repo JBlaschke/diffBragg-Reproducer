@@ -27,6 +27,8 @@ I have tested (and confirmed this with 70 nodes/ 280 processes). Also: using
 the same conda env but sourcing via `/dvs_ro/` -- or installing to SCRATCH --
 stopped this reproducer from tripping the error in my tests.
 
+More details on build variants below:
+
 ## Installation
 
 Two variants can be installed:
