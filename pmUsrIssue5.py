@@ -176,10 +176,7 @@ class StageTwoRefiner2:
 
         LOGGER.info("--0 create an Fcell mapping")
         if self.refine_Fcell:
-            #idx, data = self.S.D.Fhkl_tuple
-            #self.idx_from_p1 = {h: i for i, h in enumerate(idx)}
             self._make_p1_equiv_mapping()
-            # self.p1_from_idx = {i: h for i, h in zip(idx, data)}
 
         # Make a mapping of panel id to parameter index and backwards
         self.pid_from_idx = {}
@@ -209,19 +206,6 @@ class StageTwoRefiner2:
         elif self.restart_file is not None:
             LOGGER.info("Restarting from parameter file %s" % self.restart_file)
             self.x = flex.double(np.load(self.restart_file)["x"])
-
-        # setup the diffBragg instance
-        #self.D = self.S.D
-
-        #self.D.refine(self._fcell_id)
-        #self.D.initialize_managers()
-
-        #for sid in self.shot_ids:
-        #    Modeler = self.Modelers[sid]
-        #    Modeler.all_fcell_global_idx = np.array([self.idx_from_asu[h] for h in Modeler.hi_asu_perpix])
-        #    Modeler.unique_i_fcell = set(Modeler.all_fcell_global_idx)
-        #    Modeler.i_fcell_slices = self._get_i_fcell_slices(Modeler)
-        #    self.Modelers[sid] = Modeler  # TODO: VERIFY IF THIS IS NECESSARY ?
 
         self._MPI_barrier()
         LOGGER.info("Setup ends!")
@@ -281,59 +265,18 @@ class StageTwoRefiner2:
             np.save(os.path.join(self.output_dir, "f_asu_multi"), self.hkl_frequency)
             LOGGER.info("Done ")
 
-            #LOGGER.info("local refiner symbol=%s ; nanoBragg crystal symbol: %s" % (self.symbol, self.S.crystal.symbol))
-            #ma = self.S.crystal.miller_array_high_symmetry.map_to_asu()
             LOGGER.info("make an Fhkl map")
-            #ma_map = {h: d for h,d in zip(ma.indices(), ma.data())}
             LOGGER.info("make fcell_init")
             self.fcell_init_from_i_fcell = np.random.random(100)#np.array([ma_map[self.asu_from_idx[i_fcell]] for i_fcell in range(self.n_global_fcell)])
             self.fcell_sigmas_from_i_fcell = 1 #self.params.sigmas.Fhkl
             LOGGER.info("DONE make fcell_init")
 
-    def _get_sausage_parameters(self, i_shot):
-        pass
-
-    def _get_rotXYZ(self, i_shot):
-        vals = [self.Modelers[i_shot].RotXYZ[i_rot].init for i_rot in range(3)]
-        return vals
-
-    def _get_rotX(self, i_shot):
-        pass
-
-    def _get_rotY(self, i_shot):
-        pass
-
-    def _get_rotZ(self, i_shot):
-        pass
-
-    def _get_spectra_coefficients(self):
-        pass
-
-    def _get_ucell_vars(self, i_shot):
-        vars = []
-        for i in range(self.n_ucell_param):
-            var = self.Modelers[i_shot].PAR.ucell[i].init
-            vars.append(var)
-        return vars
-
-    def _get_panelRot_val(self, panel_id):
-        pass
-
-    def _get_panelXYZ_val(self, panel_id, i_shot=0):
-        pass
-
     def _get_detector_distance_val(self, i_shot):
         return self.Modelers[i_shot].PAR.detz_shift.init
-
-    def _get_ncells_def_vals(self, i_shot):
-        pass
 
     def _get_m_val(self, i_shot):
         vals = [self.Modelers[i_shot].PAR.Nabc[i_N].init for i_N in range(3)]
         return vals
-
-    def _get_eta(self, i_shot):
-        pass
 
     def _get_spot_scale(self, i_shot):
         xval = self.x[self.spot_scale_xpos[i_shot]]
@@ -350,13 +293,6 @@ class StageTwoRefiner2:
         init = PAR.B.init
         val = sig*(xval-1) + init
         return val
-
-    def _get_bg_vals(self, i_shot, i_spot):
-        pass
-
-    def _send_ucell_gradients_to_derivative_managers(self):
-        """Needs to be called once each time the orientation is updated"""
-        pass
 
     def _run_diffBragg_current(self):
         LOGGER.info("run diffBragg for shot %d" % self._i_shot)
@@ -405,9 +341,6 @@ class StageTwoRefiner2:
     def _update_eta(self):
         pass
 
-    def _set_background_plane(self):
-        self.tilt_plane = self.Modelers[self._i_shot].all_background[self.roi_sel]
-
     def _update_sausages(self):
         pass
 
@@ -439,30 +372,6 @@ class StageTwoRefiner2:
                 d2F = self.D.get_second_derivative_pixels(self._fcell_id)
                 self._extracted_fcell_second_deriv = d2F[:npix].as_numpy_array()
 
-    def _extract_sausage_derivs(self):
-        pass
-
-    def _extract_Umatrix_derivative_pixels(self):
-        pass
-
-    def _extract_Bmatrix_derivative_pixels(self):
-        pass
-
-    def _extract_ncells_def_derivative_pixels(self):
-        pass
-
-    def _extract_mosaic_parameter_m_derivative_pixels(self):
-        pass
-
-    def _extract_detector_distance_derivative_pixels(self):
-        pass
-
-    def _extract_panelRot_derivative_pixels(self):
-        pass
-
-    def _extract_panelXYZ_derivative_pixels(self):
-        pass
-
     def _extract_Fcell_derivative_pixels(self):
         # TODO pre-extract
         self.fcell_deriv = self.fcell_second_deriv = 0
@@ -473,14 +382,7 @@ class StageTwoRefiner2:
             if self.calc_curvatures:
                 self.fcell_second_deriv = SG*self._extracted_fcell_second_deriv
 
-    def _get_per_spot_scale(self, i_shot, i_spot):
-        pass
-
     def _extract_pixel_data(self):
-        #Mod = self.Modelers[self._i_shot]
-        #self.Bfactor_qterm = Mod.all_q_perpix**2 / 4.
-        #self._expBq = np.exp(-self.b_fac**2 * self.Bfactor_qterm)
-        #self.model_bragg_spots = self._expBq*self.scale_fac*(self._model_pix)
         self.model_bragg_spots = self.scale_fac*self._model_pix
         self._extract_Fcell_derivative_pixels()
 
@@ -495,9 +397,6 @@ class StageTwoRefiner2:
         self.S.beam.spectrum = self.Modelers[self._i_shot].spectra
         self.D.xray_beams = self.S.beam.xray_beams
 
-    def _get_panels_fasts_slows(self):
-        pass
-
     def compute_functional_gradients_diag(self):
         self.compute_functional_and_gradients()
         return self._f, self._g, self.d
@@ -511,8 +410,6 @@ class StageTwoRefiner2:
 
     def _compute_functional_and_gradients(self):
         LOGGER.info("BEGIN FUNC GRAD ; iteration %d" % self.iterations)
-        #if self.verbose:
-        #    self._print_iteration_header()
 
         self.target_functional = 0
 
@@ -544,7 +441,6 @@ class StageTwoRefiner2:
             self.b_fac = self._get_bfactor(self._i_shot)
 
             # TODO: Omatrix update? All crystal models here should have the same to_primitive operation, ideally
-            #LOGGER.info("update models shot %d " % self._i_shot)
             self._update_beams()
             self._update_umatrix()
             self._update_ucell()
@@ -603,7 +499,6 @@ class StageTwoRefiner2:
             self._is_trusted = self.Modelers[self._i_shot].all_trusted
             self.target_functional += self._target_accumulate()
             self._spot_scale_derivatives()
-            #self._Bfactor_derivatives()
             self._Fcell_derivatives()
         tshots = time.time()-tshots
         LOGGER.info("Time rank worked on shots=%.4f" % tshots)
@@ -662,9 +557,6 @@ class StageTwoRefiner2:
             os.makedirs(outdir)
         fname = os.path.join(outdir, "sigZ_iter%d_rank%d" % (self.iterations, self.rank))
         np.save(fname, self._shot_Zscores)
-
-    def _sanity_check_grad(self):
-        pass
 
     def _Fcell_derivatives(self):
         if not self.refine_Fcell:
@@ -870,7 +762,6 @@ class StageTwoRefiner2:
             is_bad = self.model_Lambda <= 0
             self.log_Lambda[is_bad] = 1e-6
             LOGGER.info("\n<><><><><><><><>\n\tWARNING: NEGATIVE INTENSITY IN MODEL (negative_models=%d)!!!!!!!!!\n<><><><><><><><><>\n" % self.num_negative_model)
-        #    raise ValueError("model of Bragg spots cannot have negative intensities...")
         self.log_Lambda[self.model_Lambda <= 0] = 0
 
     def _evaluate_log_averageI_plus_sigma_readout(self):
@@ -879,7 +770,6 @@ class StageTwoRefiner2:
         v_is_neg = (v <= 0).ravel()
         if any(v_is_neg):
             LOGGER.info("\n<><><><><><><><>\n\tWARNING: NEGATIVE INTENSITY IN MODEL!!!!!!!!!\n<><><><><><><><><>\n")
-        #    raise ValueError("model of Bragg spots cannot have negative intensities...")
         self.log_v = np.log(v)
         self.log_v[v <= 0] = 0  # but will I ever negative_model ?
 
@@ -935,18 +825,14 @@ class UC:
         self.be = 90
         self.ga = 120
 
-
 def global_refiner_from_parameters(params):
     launcher = RefineLauncher(params)
     # TODO read on each rank, or read and broadcast ?
     LOGGER.info("EVENT: read input pickle")
     pandas_table = None # pandas.read_pickle(params.pandas_table)
     LOGGER.info("EVENT: BEGIN prep dataframe")
-    #if params.prep_time > 0:
-    #    pandas_table = prep_dataframe(pandas_table, params.prep_time)
     LOGGER.info("EVENT: DONE prep dataframe")
     return launcher.launch_refiner(pandas_table)
-
 
 class RefineLauncher:
 
@@ -959,7 +845,6 @@ class RefineLauncher:
         self.Hi_asu = {}
         self.symbol = "P6522"
         self.DEVICE_ID = 0
-
 
     @property
     def NPIX_TO_ALLOC(self):
@@ -984,32 +869,16 @@ class RefineLauncher:
     def num_shots_on_rank(self):
         return len(self.Modelers)
 
-    def _init_panel_group_information(self, detector):
-        pass
-
-    def _init_simulator(self, expt, miller_data):
-        pass
-        #self.SIM = utils.simulator_from_expt_and_params(expt, self.params)
-        ## note self.SIM.D is a now diffBragg instance
-        ## include mosaic texture ?
-
-        ## update the miller data ?
-        #if miller_data is not None:
-        #    self.SIM.crystal.miller_array = miller_data.as_amplitude_array()
-        #    self.SIM.update_Fhkl_tuple()
-
     @staticmethod
     def _check_experiment_integrity(expt):
         for model in ["crystal", "detector", "beam", "imageset"]:
             if not hasattr(expt, model):
                 raise ValueError("No %s in experiment, exiting. " % model)
 
-
-    def launch_refiner(self, pandas_table, miller_data=None):
+    def launch_refiner(self, pandas_table):
 
         COMM.barrier()
         num_exp = 7500 #len(pandas_table)
-        #first_exper_file = pandas_table.exp_name.values[0]
 
         if COMM.size > num_exp:
             raise ValueError("Requested %d MPI ranks to process %d shots. Reduce number of ranks to %d"
@@ -1031,73 +900,15 @@ class RefineLauncher:
             if i_exp % COMM.size != COMM.rank:
                 continue
             LOGGER.info("EVENT: BEGIN loading experiment list")
-            #expt_list = ExperimentListFactory.from_json_file(exper_name, check_format=not self.params.refiner.load_data_from_refl)
-            #LOGGER.info("EVENT: DONE loading experiment list")
-            #if len(expt_list) != 1:
-            #    print("Input experiments need to have length 1, %s does not" % exper_name)
-            #expt = expt_list[0]
-            #self._check_experiment_integrity(expt)
-
-            #exper_dataframe = pandas_table.query("exp_name=='%s'" % exper_name)
-
-            #refl_name = exper_dataframe.predictions.values[0]
-            #refls = flex.reflection_table.from_file(refl_name)
-            # FIXME need to remove (0,0,0) bboxes
-            #good_sel = flex.bool([h != (0, 0, 0) for h in list(refls["miller_index"])])
-            #refls = refls.select(good_sel)
-
-            #UcellMan = utils.manager_from_crystal(expt.crystal)
-            #opt_uc_param = exper_dataframe[["a","b","c","al","be","ga"]].values[0]
-            #UcellMan = utils.manager_from_params(opt_uc_param)
-
-            #if self.symbol is None:
-            #    if self.params.refiner.force_symbol is not None:
-            #        self.symbol = self.params.refiner.force_symbol
-            #    else:
-            #        self.symbol = expt.crystal.get_space_group().type().lookup_symbol()
-            #else:
-            #    if self.params.refiner.force_symbol is None:
-            #        if expt.crystal.get_space_group().type().lookup_symbol() != self.symbol:
-            #            raise ValueError("Crystals should all have the same space group symmetry")
 
             if shot_idx == 0:  # each rank initializes a simulator only once
                 if self.params.simulator.init_scale != 1:
                     print("WARNING: For stage_two , it is assumed that total scale is stored in the pandas dataframe")
                     print("WARNING: resetting params.simulator.init_scale to 1!")
                     self.params.simulator.init_scale = 1
-                #self._init_simulator(expt, miller_data)
 
             LOGGER.info("EVENT: LOADING ROI DATA")
             shot_modeler = DataModeler()
-            #if self.params.refiner.load_data_from_refl:
-            #    gathered = shot_modeler.GatherFromReflectionTable(expt, refls, sg_symbol=self.symbol)
-            #else:
-            #    gathered = shot_modeler.GatherFromExperiment(expt, refls, sg_symbol=self.symbol)
-            #if not gathered:
-            #    raise("Failed to gather data from experiment %s", exper_name)
-
-            #if self.params.refiner.gather_dir is not None:
-            #    gathered_name = os.path.splitext(os.path.basename(exper_name))[0]
-            #    gathered_name += "_withData.refl"
-            #    gathered_name = os.path.join(self.params.refiner.gather_dir, gathered_name )
-            #    shot_modeler.dump_gathered_to_refl(gathered_name, do_xyobs_sanity_check=False) #True)
-            #    LOGGER.info("SAVED ROI DATA TO %s" % gathered_name)
-            #    if self.params.refiner.test_gathered_file:
-            #        all_data = shot_modeler.all_data.copy()
-            #        all_roi_id = shot_modeler.roi_id.copy()
-            #        all_bg = shot_modeler.all_background.copy()
-            #        all_trusted = shot_modeler.all_trusted.copy()
-            #        all_pids = np.array(shot_modeler.pids)
-            #        all_rois = np.array(shot_modeler.rois)
-            #        new_Modeler = hopper_utils.DataModeler(self.params)
-            #        assert new_Modeler.GatherFromReflectionTable(exper_name, gathered_name, sg_symbol=self.symbol)
-            #        assert np.allclose(new_Modeler.all_data, all_data)
-            #        assert np.allclose(new_Modeler.all_background, all_bg)
-            #        assert np.allclose(new_Modeler.rois, all_rois)
-            #        assert np.allclose(new_Modeler.pids, all_pids)
-            #        assert np.allclose(new_Modeler.all_trusted, all_trusted)
-            #        assert np.allclose(new_Modeler.roi_id, all_roi_id)
-            #        LOGGER.info("Gathered file approved!")
             time.sleep(np.random.random()*0.05)
 
             Nh = np.random.randint(10,250)
@@ -1111,10 +922,8 @@ class RefineLauncher:
 
             shot_idx += 1
             if COMM.rank == 0:
-                #self._mem_usage()
                 print("Finished loading image %d / %d" % (i_exp+1, len(exper_names)), flush=True)
 
-            #shot_modeler.PAR = PAR_from_params(self.params, expt, best=exper_dataframe)
             self.Modelers[i_exp] = shot_modeler
 
         LOGGER.info("DONE LOADING DATA; ENTER BARRIER")
@@ -1154,16 +963,12 @@ class RefineLauncher:
         self._mem_usage()
 
         LOGGER.info("EVENT: launch refiner")
-        #COMM.barrier()
-        #sys.exit()
         self._launch()
 
         return self.RUC
 
     def _mem_usage(self):
         memMB = get_memory_usage()
-        #memMB = np.random.uniform(100,2000)
-        #memMB = 0
         import socket
         host = socket.gethostname()
         print("reporting memory usage: %f GB on node %s" % (memMB / 1e3, host), flush=True)
@@ -1180,11 +985,8 @@ class RefineLauncher:
         max_npix = 0
         for i_shot in self.Modelers:
             modeler = self.Modelers[i_shot]
-            #x1, x2, y1, y2 = map(np.array, zip(*modeler.rois))
             npix = np.random.randint(1000,10000) # #np.sum((x2-x1)*(y2-y1))
             max_npix = max(npix, max_npix)
-            #print("Rank %d, shot %d has %d pixels" % (COMM.rank, i_shot+1, npix))
-        #print("Rank %d, max pix to be modeled: %d" % (COMM.rank, max_npix))
         return max_npix
 
     def _try_loading_spectrum_filelist(self):
@@ -1218,9 +1020,6 @@ class RefineLauncher:
         self.asu_from_idx = {i: h for i, h in enumerate(set(self.Hi_asu_all_ranks))}
 
         self.num_hkl_global = len(self.idx_from_asu)
-
-        #fres = marr_unique_h.d_spacings()
-        #self.res_from_asu = {h: res for h, res in zip(fres.indices(), fres.data())}
 
     def _get_unique_Hi(self):
         COMM.barrier()
@@ -1304,22 +1103,10 @@ class RefineLauncher:
             self.RUC.idx_from_asu = self.idx_from_asu
             self.RUC.asu_from_idx = self.asu_from_idx
 
-            #self.RUC.S = self.SIM
             self.RUC.ma = self.ma
             self.RUC.restart_file = self.params.refiner.io.restart_file
-            #self.RUC.S.update_nanoBragg_instance('update_oversample_during_refinement',
-            #                                     self.params.refiner.update_oversample_during_refinement)
-            #self.RUC.S.update_nanoBragg_instance("Npix_to_allocate", self.NPIX_TO_ALLOC)
-            #self.RUC.S.update_nanoBragg_instance('device_Id', self.DEVICE_ID)
-            #self.RUC.use_curvatures_threshold = self.params.refiner.use_curvatures_threshold
-            #if not self.params.refiner.curvatures:
-            #self.RUC.S.update_nanoBragg_instance('compute_curvatures', False)
-            #if COMM.rank==0:
-            #self.RUC.S.update_nanoBragg_instance('verbose', self.params.refiner.verbose)
 
             LOGGER.info("_launch run setup")
-            #COMM.barrier()
-            #sys.exit()
             self.RUC._setup()
             COMM.barrier()
             sys.exit()
@@ -1343,11 +1130,6 @@ class RefineLauncher:
                     self.RUC.S.D.show_timings(self.RUC.rank)
                 self.RUC._MPI_barrier()
                 break
-
-            #if self.params.refiner.debug_pixel_panelfastslow is not None:
-            #    utils.show_diffBragg_state(self.RUC.S.D, self.params.refiner.debug_pixel_panelfastslow)
-            #    s = self.RUC._get_spot_scale(0)
-            #    print("refiner spot scale=%f" % (s**2))
 
             x_init = self.RUC.x
 
@@ -2219,17 +2001,10 @@ if __name__ == "__main__":
     }
     """
 
-    #from argparse import ArgumentParser
-    #parser = ArgumentParser()
-    #parser.add_argument("--phil", type=str, required=True, help="path to a phil string")
-    #parser.add_argument("--cmdlinePhil", nargs="+", default=None, type=str, help="command line phil params")
-    #progargs = parser.parse_args()
-
     philz = script_phil + hopper_phil + simulator_phil + refiner_phil + roi_phil + preditions_phil
     phil_scope = parse(philz)
     arg_interp = phil_scope.command_line_argument_interpreter(home_scope="")
 
-    #phil_file = open(progargs.phil, "r").read()
     phil_file = """
     roi.shoebox_size = 13
     roi.fit_tilt = True
