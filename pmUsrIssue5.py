@@ -397,10 +397,6 @@ class StageTwoRefiner2:
         self.S.beam.spectrum = self.Modelers[self._i_shot].spectra
         self.D.xray_beams = self.S.beam.xray_beams
 
-    def compute_functional_gradients_diag(self):
-        self.compute_functional_and_gradients()
-        return self._f, self._g, self.d
-
     def compute_functional_and_gradients(self):
         t = time.time()
         out = self._compute_functional_and_gradients()
@@ -608,22 +604,6 @@ class StageTwoRefiner2:
         if return_derivatives:
             return d, d2
 
-    def _Bfactor_derivatives(self):
-        LOGGER.info("derivatives of Bfactors for shot %d: current B=%e Ang^2" % (self._i_shot, self.b_fac**2))
-        if self.params.fix.B:
-            return
-        dI_dtheta = -.5*self.model_bragg_spots*self.Bfactor_qterm * self.b_fac
-        d2I_dtheta2 = 0 #-.5*self.model_bragg_spots*self.Bfactor_qterm
-        # second derivative is 0 with respect to scale factor
-        sig = self.Modelers[self._i_shot].PAR.B.sigma
-        d = dI_dtheta*sig
-        d2 = d2I_dtheta2*(sig**2)
-
-        xpos = self.Bfactor_xpos[self._i_shot]
-        self.grad[xpos] += self._grad_accumulate(d)
-        if self.calc_curvatures:
-            self.curv[xpos] += self._curv_accumulate(d, d2)
-
     def _mpi_aggregation(self):
         # reduce the broadcast summed results:
         LOGGER.info("aggregate barrier")
@@ -700,18 +680,6 @@ class StageTwoRefiner2:
             refine_str += "Mosaic texture, "
         return refine_str
 
-    def _print_iteration_header(self):
-        refine_str = self._get_refinement_string_label()
-        border = "<><><><><><><><><><><><><><><><>"
-        if self.use_curvatures:
-
-            LOGGER.info(
-                "%s%s%s%s\nTrial%d (%s): Compute functional and gradients Iter %d %s(Using Curvatures)%s\n%s%s%s%s"
-                % (Bcolors.HEADER, border,border,border, self.trial_id + 1, refine_str, self.iterations + 1, Bcolors.OKGREEN, Bcolors.HEADER, border,border,border, Bcolors.ENDC))
-        else:
-            LOGGER.info("%s%s%s%s\n, Trial%d (%s): Compute functional and gradients Iter %d PosCurva %d\n%s%s%s%s"
-                        % (Bcolors.HEADER, border, border, border, self.trial_id + 1, refine_str, self.iterations + 1, self.num_positive_curvatures, border, border,border, Bcolors.ENDC))
-
     def _MPI_save_state_of_refiner(self):
         if self.I_AM_ROOT and self.output_dir is not None and self.refine_Fcell:
             outf = os.path.join(self.output_dir, "_fcell_trial%d_iter%d" % (self.trial_id, self.iterations))
@@ -753,17 +721,6 @@ class StageTwoRefiner2:
         self.common_grad_term = self.one_over_v * self.one_minus_2u_minus_u_squared_over_v
         self._Zscore = self.u*np.sqrt(self.one_over_v)
 
-    def _evaluate_log_averageI(self):  # for Poisson only stats
-        try:
-            self.log_Lambda = np.log(self.model_Lambda)
-        except FloatingPointError:
-            pass
-        if any((self.model_Lambda <= 0).ravel()):
-            is_bad = self.model_Lambda <= 0
-            self.log_Lambda[is_bad] = 1e-6
-            LOGGER.info("\n<><><><><><><><>\n\tWARNING: NEGATIVE INTENSITY IN MODEL (negative_models=%d)!!!!!!!!!\n<><><><><><><><><>\n" % self.num_negative_model)
-        self.log_Lambda[self.model_Lambda <= 0] = 0
-
     def _evaluate_log_averageI_plus_sigma_readout(self):
         Mod = self.Modelers[self._i_shot]
         v = self.model_Lambda + Mod.sigma_rdout ** 2
@@ -772,9 +729,6 @@ class StageTwoRefiner2:
             LOGGER.info("\n<><><><><><><><>\n\tWARNING: NEGATIVE INTENSITY IN MODEL!!!!!!!!!\n<><><><><><><><><>\n")
         self.log_v = np.log(v)
         self.log_v[v <= 0] = 0  # but will I ever negative_model ?
-
-    def get_refined_Bmatrix(self, i_shot):
-        return self.Modelers[i_shot].PAR.ucell_man.B_recipspace
 
     def curvatures(self):
         return self.curv
