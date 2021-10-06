@@ -210,21 +210,6 @@ class StageTwoRefiner2:
         self._MPI_barrier()
         LOGGER.info("Setup ends!")
 
-    def _get_i_fcell_slices(self, Modeler):
-        """finds the boundaries for each fcell in the 1-D array of per-shot data"""
-        # TODO move this to Data Modeler class ?
-        splitter = np.where(np.diff(Modeler.all_fcell_global_idx) != 0)[0]+1
-        npix = len(Modeler.all_fcell_global_idx)
-        slices = [slice(V[0], V[-1]+1, 1) for V in np.split(np.arange(npix), splitter)]
-        i_fcells = [V[0] for V in np.split(Modeler.all_fcell_global_idx, splitter)]
-        i_fcell_slices = {}
-        for i_fcell, slc in zip(i_fcells, slices):
-            if i_fcell not in i_fcell_slices:
-                i_fcell_slices[i_fcell] = [slc]
-            else:
-                i_fcell_slices[i_fcell].append(slc)
-        return i_fcell_slices
-
     def _get_shot_mapping(self):
         """each modeled shot maps to an integer along interval [0,Nshots) """
         all_shot_ids = COMM.gather(self.shot_ids)
@@ -357,9 +342,6 @@ class StageTwoRefiner2:
     def _update_dxtbx_detector(self):
         shiftZ = self._get_detector_distance_val(self._i_shot)
         self.S.D.shift_origin_z(self.S.detector,  shiftZ)
-
-    def _extract_spectra_coefficient_derivatives(self):
-        pass
 
     def _pre_extract_deriv_arrays(self):
         npix = len(self.Modelers[self._i_shot].all_data)
@@ -639,46 +621,6 @@ class StageTwoRefiner2:
             self._verify_diag()
         else:
             self.d = None
-
-    def _get_refinement_string_label(self):
-        refine_str = "refining "
-        if self.refine_Fcell:
-            refine_str += "fcell, "
-        if self.refine_ncells:
-            refine_str += "Ncells, "
-        if self.refine_ncells_def:
-            refine_str += "Ncells_def, "
-        if self.refine_Bmatrix:
-            refine_str += "Bmat, "
-        if self.refine_Umatrix:
-            refine_str += "Umat, "
-        if self.refine_crystal_scale:
-            refine_str += "scale, "
-        if self.refine_background_planes:
-            refine_str += "bkgrnd, "
-        if self.refine_detdist:
-            refine_str += "detector_distance, "
-        if self.refine_panelRotO:
-            refine_str += "panelRotO, "
-        if self.refine_panelRotF:
-            refine_str += "panelRotF, "
-        if self.refine_panelRotS:
-            refine_str += "panelRotS, "
-        if self.refine_panelXY:
-            refine_str += "panelXY, "
-        if self.refine_panelZ:
-            refine_str += "panelZ, "
-        if self.refine_lambda0:
-            refine_str += "Lambda0 (offset), "
-        if self.refine_lambda1:
-            refine_str += "Lambda1 (scale), "
-        if self.refine_per_spot_scale:
-            refine_str += "Per-spot scales, "
-        if self.refine_eta:
-            refine_str += "Eta, "
-        if self.refine_blueSausages:
-            refine_str += "Mosaic texture, "
-        return refine_str
 
     def _MPI_save_state_of_refiner(self):
         if self.I_AM_ROOT and self.output_dir is not None and self.refine_Fcell:
