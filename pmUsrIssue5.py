@@ -796,17 +796,6 @@ class StageTwoRefiner2:
                 self.fcell_sigmas_from_i_fcell = COMM.bcast(self.fcell_sigmas_from_i_fcell)
                 self.fcell_init_from_i_fcell = COMM.bcast(self.fcell_init_from_i_fcell)
 
-    def _MPI_sync_panel_params(self):
-        if not self.I_AM_ROOT:
-            self.panelRot_params = None
-            self.panelX_params = None
-            self.panelY_params = None
-            self.panelZ_params = None
-        self.panelRot_params = COMM.bcast(self.panelRot_params)
-        self.panelX_params = COMM.bcast(self.panelX_params)
-        self.panelY_params = COMM.bcast(self.panelY_params)
-        self.panelZ_params = COMM.bcast(self.panelZ_params)
-
     def _MPI_reduce_broadcast(self, var):
         var = COMM.reduce(var, MPI.SUM, root=0)
         var = COMM.bcast(var, root=0)
@@ -868,12 +857,6 @@ class RefineLauncher:
     @property
     def num_shots_on_rank(self):
         return len(self.Modelers)
-
-    @staticmethod
-    def _check_experiment_integrity(expt):
-        for model in ["crystal", "detector", "beam", "imageset"]:
-            if not hasattr(expt, model):
-                raise ValueError("No %s in experiment, exiting. " % model)
 
     def launch_refiner(self, pandas_table):
 
@@ -973,14 +956,6 @@ class RefineLauncher:
         host = socket.gethostname()
         print("reporting memory usage: %f GB on node %s" % (memMB / 1e3, host), flush=True)
 
-    def determine_refined_panel_groups(self, pids):
-        refined_groups = []
-        #assert len(pids) == len(selection_flags)
-        for i, pid in enumerate(pids):
-            if self.panel_group_from_id[pid] not in refined_groups:
-                refined_groups.append(self.panel_group_from_id[pid])
-        return refined_groups
-
     def _determine_per_rank_max_num_pix(self):
         max_npix = 0
         for i_shot in self.Modelers:
@@ -988,14 +963,6 @@ class RefineLauncher:
             npix = np.random.randint(1000,10000) # #np.sum((x2-x1)*(y2-y1))
             max_npix = max(npix, max_npix)
         return max_npix
-
-    def _try_loading_spectrum_filelist(self):
-        file_list = None
-        fpath = self.params.simulator.spectrum.filename_list
-        if fpath is not None:
-            file_list = [l.strip() for l in open(fpath, "r").readlines()]
-            assert all([len(l.split()) == 1 for l in file_list]), "weird spectrum file %s"% fpath
-        return file_list
 
     def _gather_Hi_information(self):
         nshots_on_this_rank = len(self.Hi)
