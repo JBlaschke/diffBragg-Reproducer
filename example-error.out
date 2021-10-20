@@ -1,0 +1,694 @@
+USING 308 MPI RANKS
+Finished loading image 1 / 7500
+Finished loading image 309 / 7500
+Finished loading image 617 / 7500
+Finished loading image 925 / 7500
+Finished loading image 1233 / 7500
+Finished loading image 1541 / 7500
+Finished loading image 1849 / 7500
+Finished loading image 2157 / 7500
+Finished loading image 2465 / 7500
+Finished loading image 2773 / 7500
+Finished loading image 3081 / 7500
+Finished loading image 3389 / 7500
+Finished loading image 3697 / 7500
+Finished loading image 4005 / 7500
+Finished loading image 4313 / 7500
+Finished loading image 4621 / 7500
+Finished loading image 4929 / 7500
+Finished loading image 5237 / 7500
+Finished loading image 5545 / 7500
+Finished loading image 5853 / 7500
+Finished loading image 6161 / 7500
+Finished loading image 6469 / 7500
+Finished loading image 6777 / 7500
+Finished loading image 7085 / 7500
+Finished loading image 7393 / 7500
+Average multiplicities:
+<><><><><><><><><><><><>
+1153.2-4.3089 : Multiplicity=298.0000
+	 0 refls with multi 1
+	 0 refls with multi 9
+	 0 refls with multi 17
+	 0 refls with multi 25
+	 0 refls with multi 33
+	 0 refls with multi 41
+	 0 refls with multi 49
+	 0 refls with multi 57
+	 0 refls with multi 65
+	 0 refls with multi 73
+	 0 refls with multi 81
+	 0 refls with multi 89
+	 0 refls with multi 97
+4.3089-3.42 : Multiplicity=301.1034
+	 0 refls with multi 1
+	 0 refls with multi 9
+	 0 refls with multi 17
+	 0 refls with multi 25
+	 0 refls with multi 33
+	 0 refls with multi 41
+	 0 refls with multi 49
+	 0 refls with multi 57
+	 0 refls with multi 65
+	 0 refls with multi 73
+	 0 refls with multi 81
+	 0 refls with multi 89
+	 0 refls with multi 97
+3.42-2.9876 : Multiplicity=286.5714
+	 0 refls with multi 1
+	 0 refls with multi 9
+	 0 refls with multi 17
+	 0 refls with multi 25
+	 0 refls with multi 33
+	 0 refls with multi 41
+	 0 refls with multi 49
+	 0 refls with multi 57
+	 0 refls with multi 65
+	 0 refls with multi 73
+	 0 refls with multi 81
+	 0 refls with multi 89
+	 0 refls with multi 97
+2.9876-2.7144 : Multiplicity=308.0000
+	 0 refls with multi 1
+	 0 refls with multi 9
+	 0 refls with multi 17
+	 0 refls with multi 25
+	 0 refls with multi 33
+	 0 refls with multi 41
+	 0 refls with multi 49
+	 0 refls with multi 57
+	 0 refls with multi 65
+	 0 refls with multi 73
+	 0 refls with multi 81
+	 0 refls with multi 89
+	 0 refls with multi 97
+2.7144-2.5198 : Multiplicity=308.0000
+	 0 refls with multi 1
+	 0 refls with multi 9
+	 0 refls with multi 17
+	 0 refls with multi 25
+	 0 refls with multi 33
+	 0 refls with multi 41
+	 0 refls with multi 49
+	 0 refls with multi 57
+	 0 refls with multi 65
+	 0 refls with multi 73
+	 0 refls with multi 81
+	 0 refls with multi 89
+	 0 refls with multi 97
+2.5198-2.3713 : Multiplicity=308.0000
+	 0 refls with multi 1
+	 0 refls with multi 9
+	 0 refls with multi 17
+	 0 refls with multi 25
+	 0 refls with multi 33
+	 0 refls with multi 41
+	 0 refls with multi 49
+	 0 refls with multi 57
+	 0 refls with multi 65
+	 0 refls with multi 73
+	 0 refls with multi 81
+	 0 refls with multi 89
+	 0 refls with multi 97
+2.3713-2.2525 : Multiplicity=300.3077
+	 0 refls with multi 1
+	 0 refls with multi 9
+	 0 refls with multi 17
+	 0 refls with multi 25
+	 0 refls with multi 33
+	 0 refls with multi 41
+	 0 refls with multi 49
+	 0 refls with multi 57
+	 0 refls with multi 65
+	 0 refls with multi 73
+	 0 refls with multi 81
+	 0 refls with multi 89
+	 0 refls with multi 97
+2.2525-2.1544 : Multiplicity=301.5484
+	 0 refls with multi 1
+	 0 refls with multi 9
+	 0 refls with multi 17
+	 0 refls with multi 25
+	 0 refls with multi 33
+	 0 refls with multi 41
+	 0 refls with multi 49
+	 0 refls with multi 57
+	 0 refls with multi 65
+	 0 refls with multi 73
+	 0 refls with multi 81
+	 0 refls with multi 89
+	 0 refls with multi 97
+2.1544-2.0715 : Multiplicity=294.6667
+	 0 refls with multi 1
+	 0 refls with multi 9
+	 0 refls with multi 17
+	 0 refls with multi 25
+	 0 refls with multi 33
+	 0 refls with multi 41
+	 0 refls with multi 49
+	 0 refls with multi 57
+	 0 refls with multi 65
+	 0 refls with multi 73
+	 0 refls with multi 81
+	 0 refls with multi 89
+	 0 refls with multi 97
+Overall completeness
+<><><><><><><><>
+unused:           - 1153.1609 [   0/0      ]
+bin  1: 1153.1609 -    4.3089 [  40/6073   ] 0.007
+bin  2:    4.3089 -    3.4200 [  29/6080   ] 0.005
+bin  3:    3.4200 -    2.9876 [  28/6057   ] 0.005
+bin  4:    2.9876 -    2.7144 [  21/6089   ] 0.003
+bin  5:    2.7144 -    2.5198 [  24/6048   ] 0.004
+bin  6:    2.5198 -    2.3713 [  20/6063   ] 0.003
+bin  7:    2.3713 -    2.2525 [  26/6102   ] 0.004
+bin  8:    2.2525 -    2.1544 [  31/6087   ] 0.005
+bin  9:    2.1544 -    2.0715 [  15/6052   ] 0.002
+bin 10:    2.0715 -    2.0000 [  31/6048   ] 0.005
+unused:    2.0000 -           [2989/7255022] 0.000
+Rank 0: total miller vars=3254
+reporting memory usage: 0.597106 GB on node nid002660
+reporting memory usage: 0.597106 GB on node nid002660
+reporting memory usage: 0.597106 GB on node nid002660
+reporting memory usage: 0.597106 GB on node nid002660
+reporting memory usage: 0.597106 GB on node nid002633
+reporting memory usage: 0.597106 GB on node nid002633
+reporting memory usage: 0.597106 GB on node nid002633
+reporting memory usage: 0.597106 GB on node nid002633
+reporting memory usage: 0.597106 GB on node nid002649
+reporting memory usage: 0.597106 GB on node nid002644
+reporting memory usage: 0.597106 GB on node nid002640
+reporting memory usage: 0.597106 GB on node nid002649
+reporting memory usage: 0.597106 GB on node nid002644
+reporting memory usage: 0.597106 GB on node nid002649
+reporting memory usage: 0.597106 GB on node nid002657
+reporting memory usage: 0.597106 GB on node nid002644
+reporting memory usage: 0.597106 GB on node nid002649
+reporting memory usage: 0.597106 GB on node nid002644
+reporting memory usage: 0.597106 GB on node nid002645
+reporting memory usage: 0.597106 GB on node nid002641
+reporting memory usage: 0.597106 GB on node nid002653
+reporting memory usage: 0.597106 GB on node nid002640
+reporting memory usage: 0.597106 GB on node nid002640
+reporting memory usage: 0.597106 GB on node nid002657
+reporting memory usage: 0.597106 GB on node nid002640
+reporting memory usage: 0.597106 GB on node nid002645
+reporting memory usage: 0.597106 GB on node nid002657
+reporting memory usage: 0.597106 GB on node nid002645
+reporting memory usage: 0.597106 GB on node nid002641
+reporting memory usage: 0.597106 GB on node nid002657
+reporting memory usage: 0.597106 GB on node nid002645
+reporting memory usage: 0.597106 GB on node nid002641
+reporting memory usage: 0.597106 GB on node nid002641
+reporting memory usage: 0.597106 GB on node nid002653
+reporting memory usage: 0.597106 GB on node nid002653
+reporting memory usage: 0.597106 GB on node nid002653
+reporting memory usage: 0.597106 GB on node nid002636
+reporting memory usage: 0.597106 GB on node nid002636
+reporting memory usage: 0.597106 GB on node nid002636
+reporting memory usage: 0.597106 GB on node nid002636
+reporting memory usage: 0.597106 GB on node nid002637
+reporting memory usage: 0.597106 GB on node nid002637
+reporting memory usage: 0.597106 GB on node nid002637
+reporting memory usage: 0.597106 GB on node nid002637
+reporting memory usage: 0.597106 GB on node nid002632
+reporting memory usage: 0.597106 GB on node nid002648
+reporting memory usage: 0.597106 GB on node nid002632
+reporting memory usage: 0.597106 GB on node nid002632
+reporting memory usage: 0.597106 GB on node nid002648
+reporting memory usage: 0.597106 GB on node nid002632
+reporting memory usage: 0.597106 GB on node nid002648
+reporting memory usage: 0.597106 GB on node nid002656
+reporting memory usage: 0.597106 GB on node nid002648
+reporting memory usage: 0.597106 GB on node nid002656
+reporting memory usage: 0.597106 GB on node nid002656
+reporting memory usage: 0.597106 GB on node nid002656
+reporting memory usage: 0.597106 GB on node nid002652
+reporting memory usage: 0.597106 GB on node nid002652
+reporting memory usage: 0.597106 GB on node nid002652
+reporting memory usage: 0.597106 GB on node nid002652
+reporting memory usage: 0.104948 GB on node nid001661
+reporting memory usage: 0.104948 GB on node nid001661
+reporting memory usage: 0.597106 GB on node nid002677
+reporting memory usage: 0.104948 GB on node nid001661
+reporting memory usage: 0.104948 GB on node nid001661
+reporting memory usage: 0.597106 GB on node nid002677
+reporting memory usage: 0.597106 GB on node nid002677
+reporting memory usage: 0.597106 GB on node nid002677
+reporting memory usage: 0.104948 GB on node nid002588
+reporting memory usage: 0.597106 GB on node nid002616
+reporting memory usage: 0.104948 GB on node nid002588
+reporting memory usage: 0.104948 GB on node nid002588
+reporting memory usage: 0.597106 GB on node nid002616
+reporting memory usage: 0.597106 GB on node nid002616
+reporting memory usage: 0.597106 GB on node nid002616
+reporting memory usage: 0.104948 GB on node nid002588
+reporting memory usage: 0.597106 GB on node nid002672
+reporting memory usage: 0.597106 GB on node nid002672
+reporting memory usage: 0.597106 GB on node nid002672
+reporting memory usage: 0.597106 GB on node nid002689
+reporting memory usage: 0.597106 GB on node nid002672
+reporting memory usage: 0.597106 GB on node nid002685
+reporting memory usage: 0.597106 GB on node nid002689
+reporting memory usage: 0.104948 GB on node nid002589
+reporting memory usage: 0.597106 GB on node nid002685
+reporting memory usage: 0.597106 GB on node nid002685
+reporting memory usage: 0.597106 GB on node nid002689
+reporting memory usage: 0.597106 GB on node nid002685
+reporting memory usage: 0.597106 GB on node nid002689
+reporting memory usage: 0.104948 GB on node nid002601
+reporting memory usage: 0.104948 GB on node nid002589
+reporting memory usage: 0.104948 GB on node nid001657
+reporting memory usage: 0.104948 GB on node nid002589
+reporting memory usage: 0.104948 GB on node nid002589
+reporting memory usage: 0.104948 GB on node nid002601
+reporting memory usage: 0.104948 GB on node nid002601
+reporting memory usage: 0.104948 GB on node nid002601
+reporting memory usage: 0.597106 GB on node nid002701
+reporting memory usage: 0.104948 GB on node nid002577
+reporting memory usage: 0.597106 GB on node nid002696
+reporting memory usage: 0.597106 GB on node nid002701
+reporting memory usage: 0.597106 GB on node nid002692
+reporting memory usage: 0.597106 GB on node nid002613
+reporting memory usage: 0.104948 GB on node nid002577
+reporting memory usage: 0.597106 GB on node nid002696
+reporting memory usage: 0.597106 GB on node nid002701
+reporting memory usage: 0.597106 GB on node nid002692
+reporting memory usage: 0.597106 GB on node nid002696
+reporting memory usage: 0.597106 GB on node nid002701
+reporting memory usage: 0.597106 GB on node nid002692
+reporting memory usage: 0.597106 GB on node nid002696
+reporting memory usage: 0.597106 GB on node nid002692
+reporting memory usage: 0.597106 GB on node nid002613
+reporting memory usage: 0.597106 GB on node nid002613
+reporting memory usage: 0.104948 GB on node nid001676
+reporting memory usage: 0.104948 GB on node nid002577
+reporting memory usage: 0.597106 GB on node nid002613
+reporting memory usage: 0.597106 GB on node nid002664
+reporting memory usage: 0.104948 GB on node nid002577
+reporting memory usage: 0.597106 GB on node nid002661
+reporting memory usage: 0.104948 GB on node nid001676
+reporting memory usage: 0.597106 GB on node nid002688
+reporting memory usage: 0.597106 GB on node nid002664
+reporting memory usage: 0.104948 GB on node nid001676
+reporting memory usage: 0.104948 GB on node nid001676
+reporting memory usage: 0.597106 GB on node nid002661
+reporting memory usage: 0.597106 GB on node nid002688
+reporting memory usage: 0.597106 GB on node nid002664
+reporting memory usage: 0.597106 GB on node nid002688
+reporting memory usage: 0.597106 GB on node nid002688
+reporting memory usage: 0.104948 GB on node nid002592
+reporting memory usage: 0.104948 GB on node nid001657
+reporting memory usage: 0.597106 GB on node nid002661
+reporting memory usage: 0.597106 GB on node nid002664
+reporting memory usage: 0.597106 GB on node nid002684
+reporting memory usage: 0.104948 GB on node nid001657
+reporting memory usage: 0.104948 GB on node nid001657
+reporting memory usage: 0.597106 GB on node nid002661
+reporting memory usage: 0.597106 GB on node nid002697
+reporting memory usage: 0.597106 GB on node nid002684
+reporting memory usage: 0.597106 GB on node nid002684
+reporting memory usage: 0.104948 GB on node nid002596
+reporting memory usage: 0.597106 GB on node nid002684
+reporting memory usage: 0.104948 GB on node nid001680
+reporting memory usage: 0.104948 GB on node nid002600
+reporting memory usage: 0.104948 GB on node nid002596
+reporting memory usage: 0.597106 GB on node nid002697
+reporting memory usage: 0.597106 GB on node nid002704
+reporting memory usage: 0.104948 GB on node nid002596
+reporting memory usage: 0.104948 GB on node nid002592
+reporting memory usage: 0.104948 GB on node nid002596
+reporting memory usage: 0.104948 GB on node nid002600
+reporting memory usage: 0.104948 GB on node nid001680
+reporting memory usage: 0.597106 GB on node nid002704
+reporting memory usage: 0.104948 GB on node nid002600
+reporting memory usage: 0.104948 GB on node nid001680
+reporting memory usage: 0.597106 GB on node nid002704
+reporting memory usage: 0.104948 GB on node nid002592
+reporting memory usage: 0.104948 GB on node nid002600
+reporting memory usage: 0.104948 GB on node nid001680
+reporting memory usage: 0.597106 GB on node nid002697
+reporting memory usage: 0.597106 GB on node nid002704
+reporting memory usage: 0.104948 GB on node nid002592
+reporting memory usage: 0.597106 GB on node nid002697
+reporting memory usage: 0.104948 GB on node nid002604
+reporting memory usage: 0.104948 GB on node nid001656
+reporting memory usage: 0.104948 GB on node nid001665
+reporting memory usage: 0.104948 GB on node nid001656
+reporting memory usage: 0.104948 GB on node nid001656
+reporting memory usage: 0.104948 GB on node nid001656
+reporting memory usage: 0.104948 GB on node nid002604
+reporting memory usage: 0.104948 GB on node nid002604
+reporting memory usage: 0.104948 GB on node nid001665
+reporting memory usage: 0.104948 GB on node nid002604
+reporting memory usage: 0.104948 GB on node nid001664
+reporting memory usage: 0.104948 GB on node nid001660
+reporting memory usage: 0.104948 GB on node nid001665
+reporting memory usage: 0.104948 GB on node nid001665
+reporting memory usage: 0.104948 GB on node nid001660
+reporting memory usage: 0.104948 GB on node nid002585
+reporting memory usage: 0.597106 GB on node nid002625
+reporting memory usage: 0.597106 GB on node nid002628
+reporting memory usage: 0.104948 GB on node nid001660
+reporting memory usage: 0.104948 GB on node nid001664
+reporting memory usage: 0.104948 GB on node nid001660
+reporting memory usage: 0.104948 GB on node nid001664
+reporting memory usage: 0.104948 GB on node nid001664
+reporting memory usage: 0.597106 GB on node nid002625
+reporting memory usage: 0.597106 GB on node nid002673
+reporting memory usage: 0.597106 GB on node nid002628
+reporting memory usage: 0.104948 GB on node nid001672
+reporting memory usage: 0.104948 GB on node nid002581
+reporting memory usage: 0.597106 GB on node nid002625
+reporting memory usage: 0.104948 GB on node nid002584
+reporting memory usage: 0.104948 GB on node nid001669
+reporting memory usage: 0.597106 GB on node nid002625
+reporting memory usage: 0.597106 GB on node nid002681
+reporting memory usage: 0.104948 GB on node nid001672
+reporting memory usage: 0.104948 GB on node nid002581
+reporting memory usage: 0.104948 GB on node nid002585
+reporting memory usage: 0.597106 GB on node nid002673
+reporting memory usage: 0.597106 GB on node nid002628
+reporting memory usage: 0.104948 GB on node nid001672
+reporting memory usage: 0.104948 GB on node nid002581
+reporting memory usage: 0.597106 GB on node nid002673
+reporting memory usage: 0.104948 GB on node nid002584
+reporting memory usage: 0.104948 GB on node nid001672
+reporting memory usage: 0.597106 GB on node nid002621
+reporting memory usage: 0.597106 GB on node nid002673
+reporting memory usage: 0.104948 GB on node nid002584
+reporting memory usage: 0.104948 GB on node nid002584
+reporting memory usage: 0.104948 GB on node nid002585
+reporting memory usage: 0.597106 GB on node nid002628
+reporting memory usage: 0.104948 GB on node nid002585
+reporting memory usage: 0.597106 GB on node nid002621
+reporting memory usage: 0.104948 GB on node nid002581
+reporting memory usage: 0.597106 GB on node nid002621
+reporting memory usage: 0.597106 GB on node nid002621
+reporting memory usage: 0.104948 GB on node nid001673
+reporting memory usage: 0.597106 GB on node nid002681
+reporting memory usage: 0.104948 GB on node nid002597
+reporting memory usage: 0.597106 GB on node nid002676
+reporting memory usage: 0.597106 GB on node nid002700
+reporting memory usage: 0.597106 GB on node nid002681
+reporting memory usage: 0.104948 GB on node nid001673
+reporting memory usage: 0.104948 GB on node nid002593
+reporting memory usage: 0.597106 GB on node nid002608
+reporting memory usage: 0.597106 GB on node nid002668
+reporting memory usage: 0.104948 GB on node nid001673
+reporting memory usage: 0.104948 GB on node nid002597
+reporting memory usage: 0.597106 GB on node nid002609
+reporting memory usage: 0.597106 GB on node nid002676
+reporting memory usage: 0.104948 GB on node nid001673
+reporting memory usage: 0.597106 GB on node nid002676
+reporting memory usage: 0.597106 GB on node nid002676
+reporting memory usage: 0.597106 GB on node nid002608
+reporting memory usage: 0.597106 GB on node nid002700
+reporting memory usage: 0.597106 GB on node nid002668
+reporting memory usage: 0.597106 GB on node nid002608
+reporting memory usage: 0.597106 GB on node nid002668
+reporting memory usage: 0.104948 GB on node nid001669
+reporting memory usage: 0.104948 GB on node nid002593
+reporting memory usage: 0.597106 GB on node nid002609
+reporting memory usage: 0.597106 GB on node nid002608
+reporting memory usage: 0.597106 GB on node nid002624
+reporting memory usage: 0.597106 GB on node nid002668
+reporting memory usage: 0.597106 GB on node nid002681
+reporting memory usage: 0.597106 GB on node nid002669
+reporting memory usage: 0.104948 GB on node nid001668
+reporting memory usage: 0.104948 GB on node nid002597
+reporting memory usage: 0.597106 GB on node nid002609
+reporting memory usage: 0.597106 GB on node nid002700
+reporting memory usage: 0.597106 GB on node nid002609
+reporting memory usage: 0.597106 GB on node nid002700
+reporting memory usage: 0.597106 GB on node nid002612
+reporting memory usage: 0.104948 GB on node nid001669
+reporting memory usage: 0.104948 GB on node nid001677
+reporting memory usage: 0.597106 GB on node nid002617
+reporting memory usage: 0.597106 GB on node nid002624
+reporting memory usage: 0.104948 GB on node nid001669
+reporting memory usage: 0.597106 GB on node nid002624
+reporting memory usage: 0.104948 GB on node nid001668
+reporting memory usage: 0.597106 GB on node nid002680
+reporting memory usage: 0.597106 GB on node nid002629
+reporting memory usage: 0.104948 GB on node nid002597
+reporting memory usage: 0.597106 GB on node nid002624
+reporting memory usage: 0.597106 GB on node nid002669
+reporting memory usage: 0.597106 GB on node nid002612
+reporting memory usage: 0.104948 GB on node nid001677
+reporting memory usage: 0.597106 GB on node nid002617
+reporting memory usage: 0.597106 GB on node nid002669
+reporting memory usage: 0.597106 GB on node nid002612
+reporting memory usage: 0.104948 GB on node nid001677
+reporting memory usage: 0.597106 GB on node nid002617
+reporting memory usage: 0.597106 GB on node nid002669
+reporting memory usage: 0.104948 GB on node nid002580
+reporting memory usage: 0.104948 GB on node nid001668
+reporting memory usage: 0.104948 GB on node nid001677
+reporting memory usage: 0.104948 GB on node nid001668
+reporting memory usage: 0.597106 GB on node nid002680
+reporting memory usage: 0.597106 GB on node nid002629
+reporting memory usage: 0.597106 GB on node nid002617
+reporting memory usage: 0.104948 GB on node nid002593
+reporting memory usage: 0.597106 GB on node nid002693
+reporting memory usage: 0.597106 GB on node nid002665
+reporting memory usage: 0.597106 GB on node nid002680
+reporting memory usage: 0.597106 GB on node nid002629
+reporting memory usage: 0.104948 GB on node nid002580
+reporting memory usage: 0.597106 GB on node nid002612
+reporting memory usage: 0.597106 GB on node nid002680
+reporting memory usage: 0.597106 GB on node nid002629
+reporting memory usage: 0.104948 GB on node nid002580
+reporting memory usage: 0.597106 GB on node nid002693
+reporting memory usage: 0.597106 GB on node nid002665
+reporting memory usage: 0.104948 GB on node nid002593
+reporting memory usage: 0.597106 GB on node nid002693
+reporting memory usage: 0.597106 GB on node nid002665
+reporting memory usage: 0.597106 GB on node nid002693
+reporting memory usage: 0.597106 GB on node nid002665
+reporting memory usage: 0.104948 GB on node nid002580
+reporting memory usage: 0.597106 GB on node nid002605
+reporting memory usage: 0.597106 GB on node nid002605
+reporting memory usage: 0.597106 GB on node nid002605
+reporting memory usage: 0.597106 GB on node nid002605
+reporting memory usage: 0.597106 GB on node nid002620
+reporting memory usage: 0.597106 GB on node nid002620
+reporting memory usage: 0.597106 GB on node nid002620
+reporting memory usage: 0.597106 GB on node nid002620
+mlx5: nid001656: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 20009232 00000000 00001000
+00003d9e 920b3204 0002a75c 008078e0
+MPICH ERROR [Rank 0] [job id 126743.0] [Wed Oct 20 13:01:00 2021] [nid001656] - Abort(3783055) (rank 0 in comm 0): Fatal error in PMPI_Gatherv: Other MPI error, error stack:
+PMPI_Gatherv(415)..............: MPI_Gatherv failed(sbuf=0x55853bda8960, scount=90, MPI_BYTE, rbuf=0x55853bda89f0, rcnts=0x55853bdca200, displs=0x55853bdca6d0, datatype=MPI_BYTE, root=0, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Gatherv(353).........: 
+MPIC_Recv(197).................: 
+MPIC_Wait(71)..................: 
+MPIR_Wait_impl(41).............: 
+MPID_Progress_wait(186)........: 
+MPIDI_Progress_test(80)........: 
+MPIDI_OFI_handle_cq_error(1059): OFI poll failed (ofi_events.c:1061:MPIDI_OFI_handle_cq_error:Input/output error - local protection error)
+
+aborting job:
+Fatal error in PMPI_Gatherv: Other MPI error, error stack:
+PMPI_Gatherv(415)..............: MPI_Gatherv failed(sbuf=0x55853bda8960, scount=90, MPI_BYTE, rbuf=0x55853bda89f0, rcnts=0x55853bdca200, displs=0x55853bdca6d0, datatype=MPI_BYTE, root=0, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Gatherv(353).........: 
+MPIC_Recv(197).................: 
+MPIC_Wait(71)..................: 
+MPIR_Wait_impl(41).............: 
+MPID_Progress_wait(186)........: 
+MPIDI_Progress_test(80)........: 
+MPIDI_OFI_handle_cq_error(1059): OFI poll failed (ofi_events.c:1061:MPIDI_OFI_handle_cq_error:Input/output error - local protection error)
+mlx5: nid002616: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+0000000e 00000000 00000000 00000000
+00000000 00008914 0a022c10 001bf6d2
+mlx5: nid001657: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000001 00000000 00000000 00000000
+00000000 00008914 0a028f3c 0025edd2
+mlx5: nid001660: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000004 00000000 00000000 00000000
+00000000 00008914 0a02a582 002609d2
+mlx5: nid001664: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000006 00000000 00000000 00000000
+00000000 00008914 0a029cbe 002354d2
+mlx5: nid001672: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000008 00000000 00000000 00000000
+00000000 00008914 0a02d540 00280fd2
+mlx5: nid002680: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+0000000d 00000000 00000000 00000000
+00000000 00008914 0a022da0 001b76d2
+mlx5: nid002584: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+0000000a 00000000 00000000 00000000
+00000000 00008914 0a021f23 001ba4d2
+srun: error: nid001656: task 0: Exited with exit code 255
+srun: launch/slurm: _step_signal: Terminating StepId=126743.0
+slurmstepd: error: *** STEP 126743.0 ON nid001656 CANCELLED AT 2021-10-20T20:01:00 ***
+srun: error: nid001680: tasks 49-51: Terminated
+srun: error: nid001677: tasks 44-46: Terminated
+srun: error: nid002592: tasks 81-83: Terminated
+srun: error: nid002585: tasks 68-70: Terminated
+srun: error: nid001664: tasks 17-19: Terminated
+srun: error: nid002596: tasks 89-91: Terminated
+srun: error: nid002672: tasks 241-243: Terminated
+srun: error: nid002600: tasks 97-99: Terminated
+srun: error: nid001672: tasks 33-35: Terminated
+srun: error: nid002577: tasks 53-55: Terminated
+srun: error: nid002612: tasks 120-122: Terminated
+srun: error: nid001665: tasks 21-23: Terminated
+srun: error: nid002676: tasks 249-251: Terminated
+srun: error: nid001669: tasks 29-31: Terminated
+srun: error: nid001657: tasks 5-7: Terminated
+srun: error: nid002581: tasks 61-63: Terminated
+srun: error: nid002624: tasks 145-147: Terminated
+srun: error: nid002657: tasks 213-215: Terminated
+srun: error: nid002597: tasks 93-95: Terminated
+srun: error: nid002689: tasks 277-279: Terminated
+srun: error: nid002604: tasks 105-107: Terminated
+srun: error: nid002704: tasks 305-307: Terminated
+srun: error: nid002677: tasks 253-255: Terminated
+srun: error: nid001668: tasks 25-27: Terminated
+srun: error: nid002653: tasks 205-207: Terminated
+srun: error: nid002664: tasks 225-227: Terminated
+srun: error: nid002673: tasks 245-247: Terminated
+srun: error: nid002588: tasks 73-75: Terminated
+srun: error: nid002633: tasks 165-167: Terminated
+srun: error: nid002632: tasks 161-163: Terminated
+srun: error: nid002620: tasks 137-139: Terminated
+srun: error: nid002644: tasks 185-187: Terminated
+srun: error: nid002661: tasks 221-223: Terminated
+srun: error: nid002613: tasks 125-127: Terminated
+srun: error: nid002641: tasks 181-183: Terminated
+srun: error: nid002669: tasks 237-239: Terminated
+srun: error: nid002580: tasks 57-59: Terminated
+srun: error: nid002692: tasks 281-283: Terminated
+srun: error: nid002628: tasks 153-155: Terminated
+srun: error: nid001656: tasks 2-3: Terminated
+srun: error: nid002629: tasks 157-159: Terminated
+srun: error: nid002668: tasks 233-235: Terminated
+srun: error: nid002625: tasks 149-151: Terminated
+srun: error: nid002640: tasks 177-179: Terminated
+srun: error: nid002621: tasks 141-143: Terminated
+srun: error: nid002681: tasks 261-263: Terminated
+srun: error: nid002700: tasks 297-299: Terminated
+srun: error: nid001656: task 1: Terminated
+srun: error: nid001661: tasks 13-15: Terminated
+srun: error: nid002584: tasks 65-67: Terminated
+srun: error: nid002589: tasks 77-79: Terminated
+srun: error: nid002645: tasks 189-191: Terminated
+srun: error: nid002680: tasks 257-259: Terminated
+srun: error: nid001660: tasks 9-11: Terminated
+srun: error: nid002701: tasks 301-303: Terminated
+srun: error: nid002601: tasks 101-103: Terminated
+srun: error: nid002648: tasks 193-195: Terminated
+srun: error: nid002656: tasks 209-211: Terminated
+srun: error: nid002697: tasks 293-295: Terminated
+srun: error: nid002637: tasks 173-175: Terminated
+srun: error: nid002660: tasks 217-219: Terminated
+srun: error: nid002608: tasks 113-115: Terminated
+srun: error: nid002609: tasks 117-119: Terminated
+srun: error: nid001673: tasks 37-39: Terminated
+srun: error: nid002688: tasks 273-275: Terminated
+srun: error: nid002696: tasks 289-291: Terminated
+srun: error: nid002693: tasks 285-287: Terminated
+srun: error: nid002605: tasks 109-111: Terminated
+srun: error: nid001680: task 48: Terminated
+srun: error: nid002593: tasks 85-87: Terminated
+srun: error: nid001676: tasks 41-43: Terminated
+srun: error: nid002697: task 292: Terminated
+srun: error: nid002616: tasks 129-131: Terminated
+srun: error: nid002688: task 272: Terminated
+srun: error: nid002677: task 252: Terminated
+srun: error: nid002676: task 248: Terminated
+srun: error: nid002665: tasks 229-231: Terminated
+srun: error: nid002600: task 96: Terminated
+srun: error: nid002696: task 288: Terminated
+srun: error: nid002641: task 180: Terminated
+srun: error: nid002701: task 300: Terminated
+srun: error: nid001664: task 16: Terminated
+srun: error: nid002700: task 296: Terminated
+srun: error: nid001677: task 47: Terminated
+srun: error: nid002584: task 64: Terminated
+srun: error: nid002649: tasks 197-199: Terminated
+srun: error: nid002604: task 104: Terminated
+srun: error: nid002601: task 100: Terminated
+srun: error: nid001660: task 8: Terminated
+srun: error: nid002652: tasks 201-203: Terminated
+srun: error: nid001673: task 36: Terminated
+srun: error: nid001672: task 32: Terminated
+srun: error: nid002585: task 71: Terminated
+srun: error: nid002704: task 304: Terminated
+srun: error: nid002685: tasks 269-271: Terminated
+srun: error: nid002592: task 80: Terminated
+srun: error: nid002693: task 284: Terminated
+srun: error: nid002645: task 188: Terminated
+srun: error: nid001669: task 28: Terminated
+srun: error: nid001661: task 12: Terminated
+srun: error: nid002648: task 192: Terminated
+srun: error: nid002656: task 208: Terminated
+srun: error: nid002589: task 76: Terminated
+srun: error: nid002680: task 256: Terminated
+srun: error: nid002605: task 108: Terminated
+srun: error: nid002596: task 88: Terminated
+srun: error: nid001657: task 4: Terminated
+srun: error: nid001668: task 24: Terminated
+srun: error: nid002613: task 124: Terminated
+srun: error: nid002692: task 280: Terminated
+srun: error: nid002684: tasks 265-267: Terminated
+srun: error: nid002669: task 236: Terminated
+srun: error: nid002628: task 152: Terminated
+srun: error: nid002617: tasks 132,134-135: Terminated
+srun: error: nid002644: task 184: Terminated
+srun: error: nid002597: task 92: Terminated
+srun: error: nid002653: task 204: Terminated
+srun: error: nid002593: task 84: Terminated
+srun: error: nid002673: task 244: Terminated
+srun: error: nid002657: task 212: Terminated
+srun: error: nid001665: task 20: Terminated
+srun: error: nid002616: task 128: Terminated
+srun: error: nid002577: task 52: Terminated
+srun: error: nid002672: task 240: Terminated
+srun: error: nid002581: task 60: Terminated
+srun: error: nid001676: task 40: Terminated
+srun: error: nid002625: task 148: Terminated
+srun: error: nid002668: task 232: Terminated
+srun: error: nid002649: task 196: Terminated
+srun: error: nid002640: task 176: Terminated
+srun: error: nid002661: task 220: Terminated
+srun: error: nid002608: task 112: Terminated
+srun: error: nid002665: task 228: Terminated
+srun: error: nid002580: task 56: Terminated
+srun: error: nid002689: task 276: Terminated
+srun: error: nid002588: task 72: Terminated
+srun: error: nid002633: task 164: Terminated
+srun: error: nid002629: task 156: Terminated
+srun: error: nid002660: task 216: Terminated
+srun: error: nid002632: task 160: Terminated
+srun: error: nid002612: task 123: Terminated
+srun: error: nid002637: task 172: Terminated
+srun: error: nid002652: task 200: Terminated
+srun: error: nid002620: task 136: Terminated
+srun: error: nid002621: task 140: Terminated
+srun: error: nid002684: task 264: Terminated
+srun: error: nid002609: task 116: Terminated
+srun: error: nid002624: task 144: Terminated
+srun: error: nid002685: task 268: Terminated
+srun: error: nid002617: task 133: Terminated
+srun: error: nid002681: task 260: Terminated
+srun: error: nid002636: tasks 168-171: Terminated
+srun: error: nid002664: task 224: Terminated
+srun: Force Terminated StepId=126743.0
