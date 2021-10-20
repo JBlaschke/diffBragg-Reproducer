@@ -1,13 +1,7 @@
-# Load modules
-module load PrgEnv-gnu cuda cpe-cuda
+#!/bin/bash
 
-# Set Environment
-root_dir=$(readlink -f $(dirname "${BASH_SOURCE[0]}"))
+module load PrgEnv-gnu python
 
-export ROOT_DIR=${root_dir}
-export CONDA_ROOT=${root_dir}/conda
+env=$(pwd)/diffbragg
 
-if [[ -e ${CONDA_ROOT}/etc/profile.d/conda.sh ]]
-then
-    source ${CONDA_ROOT}/etc/profile.d/conda.sh 
-fi
+source activate $env

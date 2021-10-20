@@ -1,87 +1,66 @@
-# Derek's MLX5 Reproducer
+# Derek's DiffBragg MLX5 Reproducer
+
+This is a Python + mpi4py reproducer for the mlx5 error reported
+in Case 293224.
 
 The MLX5 error occurs (pretty consistently) on Perlmutter's GPU nodes. What I
 have found the bug is reliably tripped when:
-1. Using installation variant 1 (i.e. NERSC's Conda environment)
-2. Using 70 (or more) GPU nodes
-3. All sources and dependencies (including the Conda environtment) are on CFS
+1. Using 70 (or more) GPU nodes
+2. All sources and dependencies (including the Conda environtment) are on $CFS,
+   which is our large GPFS filesystem
 
 Substituting the DVS mount (`/dvs_ro/`) stops this reproducer from tripping the
-error (possibly completely, or at least supressing the probability).
+error (possibly completely, or at least supressing the probability). Installing
+to $SCRATCH (our Lustre filesystem) also seems to prevent the error.
 
-This is what works (clone to CFS):
-```bash
-salloc -C gpu -n 308 -c 2 -t 60 --gpus-per-task 1 -A ...
-
-cd $CFS/path/to/repo
-
-./setup-noconda.sh $(pwd)/conda
-
-module load PrgEnv-gnu python
-source $(pwd)/cond
-
-srun -N77 -n308 -c2 python -X faulthandler pmUsrIssue5.py
-```
-
-I have tested (and confirmed this with 70 nodes/ 280 processes). Also: using
-the same conda env but sourcing via `/dvs_ro/` -- or installing to SCRATCH --
-stopped this reproducer from tripping the error in my tests.
-
-More details on build variants below:
+We note that this app also sometimes hangs. This may be a separate issue.
 
 ## Installation
 
-Two variants can be installed:
-1. Using NERSC's Conda (via the `python` module)
-2. Using Miniconda
-
-If you choose to use (2) then you need to source the `env.sh` before running.
-If you choose (1) then you need to run `module load PrgEnv-gnu python` instead.
-c.f. bullet 2 in the section on `Running`.
-
-### Using NERSC's Conda
-
 ```bash
-./setup-noconda.sh $YOUR_LOCAL_CONDA_PREFIX
-```
-This will create a conda environment in the locaction `YOUR_LOCAL_CONDA_PREFIX`
-conda prefix. Re-running will **not** delete this environment.
-
-### Miniconda Variant
-
-```bash
+ssh perlmutter
+#create dir at $CFS/nvendor/<your-username>
+cd $CFS/nvendor/<your-username>
+git clone https://github.com/JBlaschke/diffBragg-Reproducer
+cd diffBragg-Reproducer
 ./setup.sh
 ```
-**Note:** this will erase any previous conda installations, **including** the
-conda environment
+
+This will create a conda environment called `diffbragg` 
+at `$(pwd)/diffbragg`.
+
+If you'd like to test on different filesystems, you can
+istall this repo in another place and follow the same
+instructions.
 
 ## Running
 
-1. Grab 77 interactive nodes:
 ```bash
-salloc -C gpu -n 308 -c 2 -t 60 --gpus-per-task 1 -A <account>_g -q early_science
-```
-where `<account>` is your Perlmutter Early-Science account.
-2. Run the reproducer -- depending on your variant activating the environment
-different:
-
-### Using NERSC's Conda
-
-If you installed using `setup-noconda.sh $YOUR_LOCAL_CONDA_PREFIX`
-```bash
-module load PrgEnv-gnu python
-source activate $YOUR_LOCAL_CONDA_PREFIX
-srun -N77 -n308 -c2 python -X faulthandler pmUsrIssue5.py
-```
-
-
-### Miniconda Variant
-
-If you installed using `setup.sh`
-```bash
+salloc -C gpu -n 308 -c 2 -t 60 --gpus-per-task 1 -A nvendor_g -q early_science
 source env.sh
-conda activate diffbrag2
-srun -N77 -n308 -c2 python -X faulthandler pmUsrIssue5.py
+srun -u -N77 -n308 -c2 python -u -X faulthandler pmUsrIssue5.py
 ```
-**NOTE:** the `env.sh` script loads all necessary modules on Perlmutter and
-puts this repo's conda into the path
+
+## Sample errror
+
+```
+mlx5: nid003244: got completion with error:
+00000000 00000000 00000000 00000000
+00000000 00000000 00000000 00000000
+00000000 20009232 00000000 00000300
+00003c40 92083204 000180b8 0085a0e0
+MPICH ERROR [Rank 256] [job id 126699.1] [Wed Oct 20 12:32:36 2021] [nid003244] - Abort(70891919) (rank 256 in comm 0): Fatal error in PMPI_Gatherv: Other MPI error, error stack:
+PMPI_Gatherv(415)..............: MPI_Gatherv failed(sbuf=0x55ee4a4ebea0, scount=88, MPI_BYTE, rbuf=(nil), rcnts=(nil), displs=(nil), datatype=MPI_BYTE, root=0, comm=MPI_COMM_WORLD) failed
+MPIR_CRAY_Gatherv(353).........: 
+MPIC_Recv(197).................: 
+MPIC_Wait(71)..................: 
+MPIR_Wait_impl(41).............: 
+MPID_Progress_wait(186)........: 
+MPIDI_Progress_test(80)........: 
+MPIDI_OFI_handle_cq_error(1059): OFI poll failed (ofi_events.c:1061:MPIDI_OFI_handle_cq_error:Input/output error - local protection error)
+```
+
+You can view the full output in `example-error.out`
+
+We note that this app also sometimes hangs for reasons we don't understand. It may
+be related to a different problem. 
