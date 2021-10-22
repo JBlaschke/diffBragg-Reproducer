@@ -41,6 +41,14 @@ source env.sh
 srun -u -N77 -n308 -c2 python -u -X faulthandler pmUsrIssue5.py
 ```
 
+### Hangs
+
+This reproducer can hang, as a workaround set:
+
+```bash
+export MPICH_COLL_OPT_OFF=1
+```
+
 ## Sample errror
 
 ```
